@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For KITTU&lt;3 💕</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Georgia, serif;
+  background:linear-gradient(180deg,#fff0f6,#ffe6f0);
+  text-align:center;
+  overflow-x:hidden;
+  overflow-y:auto;   /* ✅ SCROLL ENABLED */
+}
+
+
+/* 🌠 SHOOTING STARS */
+/* 🌠 REAL SHOOTING STAR */
+.star{
+  position:fixed;
+  top:5vh;
+  width:140px;                 /* tail length */
+  height:3px;                  /* tail thickness */
+  background:linear-gradient(
+    90deg,
+    rgba(255,255,255,1),
+    rgba(255,255,255,0)
+  );
+  border-radius:50%;
+  filter:
+    drop-shadow(0 0 10px white)
+    drop-shadow(0 0 20px rgba(255,255,255,0.8));
+  animation:shootStar 3.8s linear forwards;
+  opacity:1;
+  z-index:3;
+}
+
+
+
+@keyframes shootStar{
+  from{
+    transform:translate(0,0) rotate(45deg);
+    opacity:1;
+  }
+  to{
+    transform:translate(1000px,1000px) rotate(45deg);
+    opacity:0;
+  }
+}
+
+
+@keyframes shoot{
+  from{
+    transform:translate(0,0) rotate(45deg);
+    opacity:1;
+  }
+  to{
+    transform:translate(800px,800px) rotate(45deg);
+    opacity:0;
+  }
+}
+
+
+/* 🔐 LOCK */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:#ffe6f0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:10;
+}
+.lock{
+  background:white;
+  padding:25px;
+  border-radius:22px;
+  width:320px;
+}
+.lock h3{color:#ff4d6d}
+.lock input,.lock button{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:20px;
+  border:1px solid #ccc;
+}
+.lock button{
+  background:#ff4d6d;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+
+/* 💌 CONTENT */
+.box{
+  background:white;
+  width:92%;
+  max-width:420px;
+  margin:80px auto;
+  padding:22px;
+  border-radius:25px;
+  position:relative;
+  z-index:2;
+}
+h2,h3{color:#ff4d6d}
+p{color:#444;line-height:1.6}
+#counter,#next17{font-weight:bold;color:#ff4d6d}
+
+.love-para{
+  background:#fff6fb;
+  padding:18px;
+  border-radius:18px;
+  margin:20px 0;
+}
+
+/* 💗 HEARTS */
+.heart{
+  position:fixed;
+  bottom:-30px;
+  font-size:22px;
+  animation:floatUp linear infinite;
+  opacity:0.6;
+  z-index:1;
+}
+
+/* 🖼️ PHOTOS */
+.float-img{
+  position:fixed;
+  bottom:-120px;
+  width:110px;
+  border-radius:18px;
+  animation:floatPhoto linear forwards;
+  opacity:0;
+  z-index:1;
+}
+
+/* 💓 CLICK BURST */
+.tap-heart{
+  position:fixed;
+  pointer-events:none;
+  animation:burst 1s ease-out forwards;
+  z-index:999;
+}
+
+/* 🎞️ ANIMATIONS */
+@keyframes floatUp{
+  to{transform:translateY(-120vh);opacity:0}
+}
+@keyframes floatPhoto{
+  0%{opacity:0}
+  10%{opacity:0.9}
+  85%{opacity:0.9}
+  100%{transform:translateY(-120vh);opacity:0}
+}
+@keyframes burst{
+  0%{transform:scale(0)}
+  50%{transform:scale(1.5)}
+  100%{transform:scale(.5) translateY(-40px);opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔐 PASSWORD -->
+<div class="overlay" id="lockScreen">
+  <div class="lock">
+    <h3>Only for ❤️ KITTU&lt;3 ❤️</h3>
+    <p>Hint: the day we met</p>
+    <input id="pass" type="password" placeholder="170525">
+    <button onclick="unlock()">Unlock 💕</button>
+  </div>
+</div>
+
+<!-- 🎵 AUDIO -->
+<audio id="music" src="I Think They Call This Love.mp3"></audio>
+
+<!-- 💌 CONTENT -->
+<div class="box">
+  <h2>My Love Letter for ❤️ KITTU&lt;3 ❤️</h2>
+  <p>Every day with you is my favorite story 🥹💖</p>
+
+  <h3>❤️ We’ve been together for</h3>
+  <p id="counter"></p>
+
+  <h3>Another Day To Knock Her Heart ❤️</h3>
+  <p id="next17"></p>
+
+   <div class="love-para">
+    My lovely dovely KITTU&lt;3,<br><br>
+    
+You are my calm, my chaos, and my safest place. Loving you feels like 
+home — soft, warm, and forever. I choose you today, tomorrow,
+ and always. You have always been a shower of blessings and
+  love for me, loving you is the best opportunity ever given to
+   me in my life. I never thought that we can be "US" someday but
+    now that this has happened I ought
+    to love you withh all of my heart
+ and all of my breath.
+  ILOVEYOUUUUUUU MERI KISHMISH  💕
+  </div>
+
+  <div class="love-para">
+    Make a wish whenever you see a shooting star ✨  
+    Because every wish I make somehow leads back to you,  
+    my lovely dovely KITTU&lt;3 💕
+  </div>
+
+  <p>Forever yours,<br>❤️ AKKI ❤️</p>
+</div>
+
+<script>
+/* 🔐 SETTINGS */
+const PASSWORD="170525";
+const togetherSince=new Date("2025-05-17T00:00:00");
+
+/* 🎵 MUSIC */
+const START=10, END=60;
+
+/* 🖼️ IMAGES */
+const images=[
+ "images/img1.jpeg","images/img2.jpeg","images/img3.jpeg",
+ "images/img4.jpeg","images/img5.jpeg","images/img6.jpeg",
+ "images/img7.jpeg","images/img8.jpeg","images/img9.jpeg",
+ "images/img10.jpeg"
+];
+
+function unlock(){
+  if(pass.value!==PASSWORD){ alert("Wrong password 😤"); return; }
+
+  lockScreen.style.display="none";
+  startMusic();
+  startFloatingMagic();
+  startShootingStars();
+  setInterval(updateCounters,1000);
+}
+
+/* 🎵 MUSIC */
+function startMusic(){
+  const audio=document.getElementById("music");
+  audio.volume=0.8;
+  audio.onloadedmetadata=()=>{
+    audio.currentTime=START;
+    audio.play();
+  };
+  audio.ontimeupdate=()=>{
+    if(audio.currentTime>=END) audio.currentTime=START;
+  };
+  if(audio.readyState>=1){
+    audio.currentTime=START;
+    audio.play();
+  }
+}
+
+/* ⏳ TIMERS */
+function updateCounters(){
+  const now=new Date();
+  let diff=now-togetherSince;
+  counter.innerHTML=
+    `${Math.floor(diff/86400000)} days `+
+    `${Math.floor(diff/3600000)%24} hours `+
+    `${Math.floor(diff/60000)%60} minutes `+
+    `${Math.floor(diff/1000)%60} seconds 💕`;
+
+  let next=new Date(now);
+  next.setDate(17);
+  if(now.getDate()>=17) next.setMonth(now.getMonth()+1);
+  next.setHours(0,0,0,0);
+  let t=next-now;
+  next17.innerHTML=
+    `${Math.floor(t/86400000)}d `+
+    `${Math.floor(t/3600000)%24}h `+
+    `${Math.floor(t/60000)%60}m `+
+    `${Math.floor(t/1000)%60}s ✨`;
+}
+
+/* 💖 HEARTS + PHOTOS */
+function startFloatingMagic(){
+  setInterval(()=>{
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="💖";
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration=6+Math.random()*6+"s";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),12000);
+
+    let img=document.createElement("img");
+    img.src=images[Math.floor(Math.random()*images.length)];
+    img.className="float-img";
+    img.style.left=Math.random()*85+"vw";
+    img.style.animationDuration=14+Math.random()*6+"s";
+    document.body.appendChild(img);
+    setTimeout(()=>img.remove(),20000);
+  },1800);
+}
+
+/* 🌠 SHOOTING STARS */
+function startShootingStars(){
+  setInterval(()=>{
+    const star=document.createElement("div");
+    star.className="star";
+
+    /* Random horizontal start */
+    star.style.left = Math.random()*80 + "vw";
+
+    /* Random vertical variation */
+    star.style.top = Math.random()*30 + "vh";
+
+    document.body.appendChild(star);
+
+    setTimeout(()=>star.remove(),4000);
+  },1600); // ⭐ frequent but not spammy
+}
+
+
+
+/* 💓 CLICK BURST */
+document.addEventListener("click",e=>{
+  for(let i=0;i<5;i++){
+    let h=document.createElement("div");
+    h.className="tap-heart";
+    h.innerHTML="💖";
+    h.style.left=e.clientX+"px";
+    h.style.top=e.clientY+"px";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),1000);
+  }
+});
+</script>
+
+</body>
+</html>
